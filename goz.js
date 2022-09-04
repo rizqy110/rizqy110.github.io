@@ -55,3 +55,24 @@ else{ZSE.start()}
 return!0}
 return!1},start:function(){var links=document.getElementsByTagName("a");var i=0;Object.keys(links).forEach(function(index){var data=links[index];var destination=data.getAttribute("href");var hostname=data.hostname;var pathname=data.pathname;var matchesExcept=(ZSE._except.length>0?RegExp(ZSE._except.join('|'), 'i').exec(hostname):!1);var matchesOnly=(ZSE._only.length>0?RegExp(ZSE._only.join('|'), 'i').exec(hostname):!0);if(!matchesExcept&&matchesOnly){var encoded=Base64.encode(destination);var newURL=ZSE._safelink+encoded;links[i].setAttribute("href",newURL)}
 i++})},linkCount:function(){var links=document.getElementsByTagName("a");return links.length}}
+
+window.onload = function() {
+    var countdownElement = document.getElementById('countdown'),
+        downloadButton = document.getElementById('download'),
+        seconds = 60,
+        second = 0,
+        interval;
+
+    downloadButton.style.display = 'none';
+
+    interval = setInterval(function() {
+        countdownElement.firstChild.data = 'You can start your download in ' + (seconds - second) + ' seconds';
+        if (second >= seconds) {
+            downloadButton.style.display = 'block';
+            clearInterval(interval);
+            countdownElement.style.display = 'none';
+        }
+
+        second++;
+    }, 1000);
+}
