@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head></head>
+  <a href="//xxx.eroboom.pw">Eroboom</a>
   <script>
     /**
 *
@@ -60,5 +61,14 @@ return!0}
 return!1},start:function(){var links=document.getElementsByTagName("a");var i=0;Object.keys(links).forEach(function(index){var data=links[index];var destination=data.getAttribute("href");var hostname=data.hostname;var pathname=data.pathname;var matchesExcept=(ZSE._except.length>0?RegExp(ZSE._except.join('|'), 'i').exec(hostname):!1);var matchesOnly=(ZSE._only.length>0?RegExp(ZSE._only.join('|'), 'i').exec(hostname):!0);if(!matchesExcept&&matchesOnly){var encoded=Base64.encode(destination);var newURL=ZSE._safelink+encoded;links[i].setAttribute("href",newURL)}
 i++})},linkCount:function(){var links=document.getElementsByTagName("a");return links.length}}
   </script>
+  <script>
+
+ZSE.safelink("http://rizqy110.github.io/?url=")
+  .except(['zeros.co.id'])
+  .delay(1)
+  .repeat(5, 60)
+  .run();
+
+</script>
   <body></body>
 </html>
